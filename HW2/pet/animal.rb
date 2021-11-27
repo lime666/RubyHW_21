@@ -1,7 +1,6 @@
 require 'time'
 
 class Animal
-  require_relative 'menu_animal'
   attr_accessor :name
 
 def initialize name
@@ -137,6 +136,7 @@ end
 
 def pet_age
   age = Time.now - @birthTime
+  p age
 end
 
 end

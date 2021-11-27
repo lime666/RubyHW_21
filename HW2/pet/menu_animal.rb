@@ -9,16 +9,22 @@ def create_animal
   puts "Как бы Вы хотели назвать животину?"
   name = gets.chomp
 	@animal = Animal.new(name)
-	puts "Подождите немного пока животина родится."
+  puts "Подождите немного пока животина родится."
   sleep 5
   puts "#{name} родился. Назад дороги нет."
   sleep 2
+end
+
+def commandd
+  puts "Выберите действие: "
+  puts COMMANDS
+  command = gets.chomp.downcase
 end
   
 def start_to_play
   create_animal
   while true 
-  	command = command
+  	command = commandd
   	case command
   	  when 'eat'
   	  	@animal.eat
@@ -37,7 +43,9 @@ def start_to_play
   	  when 'help'
   	  	@animal.help
   	  when 'age'
-      	@animal.show_age
+      	@animal.age
+      when 'voice'
+        @animal.voice
       when 'repeat'
         @animal.repeat
   	  when 'exit'
@@ -46,12 +54,6 @@ def start_to_play
   	  	puts "Отдохни, хозяин. Ты устал и не понимаешь о чем говоришь."
   	  end
   	end
-end
-
-def command
-  puts "Выберите действие: "
-  puts COMMANDS
-  command = gets.chomp.downcase
 end
 
 end
