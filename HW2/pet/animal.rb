@@ -1,10 +1,8 @@
-require_relative 'menu_animal'
 require 'time'
 
 class Animal
-
+  require_relative 'menu_animal'
   attr_accessor :name
-
 
 def initialize name
   @name = name
@@ -137,15 +135,8 @@ def death
   end
 end
 
-
 def pet_age
   age = Time.now - @birthTime
 end
-
-def repeat
-  rand_act = [method(:wantToSleep), method(:boring?), method(:hungry?)]
-  rand_act.sample.map {|r| r.call}
-end
-
 
 end

@@ -1,7 +1,7 @@
-require_relative 'animal'
 require 'time'
 
 class Menu
+  require_relative 'animal'
 
   COMMANDS = ['eat', 'rest', 'rave', 'wakeup', 'pet', 'bath', 'wc', 'voice', 'help', 'age', 'repeat', 'exit']
 
