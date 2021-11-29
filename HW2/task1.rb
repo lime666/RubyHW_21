@@ -27,9 +27,9 @@ p 'новый массив, который бы содержал в себе т�
   'порядковый номер которых есть в нашем массиве'
 p array.select { |i| i < 27 }.map { |i| (i + 64).chr }.join
 p 'поменять местами минимальный и максимальный элементы массива'
-x = array.index(array.max)
-y = array.index(array.min)
-array[x], array[y] = array.minmax
+max = array.index(array.max)
+min = array.index(array.min)
+array[max], array[min] = array.minmax
 p array
 p 'элементы, которые находятся перед минимальным числом в массиве'
 p array.each_with_index.select { |_i, j| j < array.index(array.min) }.count
