@@ -2,13 +2,25 @@ require 'time'
 
 class Menu
   require_relative 'animal'
+  require_relative 'cat'
+  require_relative 'owl'
 
   COMMANDS = %w[eat rest rave wakeup pet bath wc voice help status age exit]
 
   def create_animal
+    p 'Какое животное Вы бы хотели родить: cat или owl?'
+    @animal_type = gets.chomp.downcase
     p 'Как бы Вы хотели назвать животину?'
     name = gets.chomp
-    @animal = Animal.new(name)
+    if @animal_type == 'cat'
+      @animal = Cat.new(name)
+      COMMANDS << %w[purr]
+    elsif @animal_type == 'owl'
+      @animal = Owl.new(name)
+      COMMANDS << %w[hunt]
+    else
+      p 'Животные закончились.'
+    end
     p 'Подождите немного пока животина родится.'
     sleep 5
     p "#{name} родился. Назад дороги нет."
@@ -44,6 +56,10 @@ class Menu
         @animal.age
       when 'voice'
         @animal.voice
+      when 'purr'
+        @animal.purr
+      when 'hunt'
+        @animal.hunt
       when 'exit'
         break
       else
