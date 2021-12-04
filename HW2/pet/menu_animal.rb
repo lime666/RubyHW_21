@@ -88,9 +88,11 @@ end
 
 def html(html_file = 'index.html')
   content = "
-    <p>Check animal: #{@animal.status}</p>"
+    <p>Animal type: #{@animal_type}</p>
+    <p>Status: #{@animal.status}</p>
+    <p>Voice: #{@animal.voice}</p>"
 
-  Html.new.to_html
+  Html.new.to_html(content, html_file)
 end
 
 Menu.new.start_to_play
