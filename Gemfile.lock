@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/lime666/to_html_gem.git
+  revision: e4da1c87ec289be768859baa7d82e09a10cb4475
+  specs:
+    to_html_gem (0.0.13)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -27,6 +33,7 @@ PLATFORMS
 
 DEPENDENCIES
   rubocop
+  to_html_gem!
 
 BUNDLED WITH
    2.1.4
