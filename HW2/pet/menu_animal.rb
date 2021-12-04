@@ -1,4 +1,5 @@
 require 'time'
+require 'to_html_gem'
 
 class Menu
   require_relative 'animal'
@@ -25,10 +26,13 @@ class Menu
     sleep 5
     p "#{name} родился. Назад дороги нет."
     sleep 2
+    html
   end
 
   def start_to_play
     create_animal
+    Html.new.open_html
+
     while true
       p 'Выберите действие: '
       p COMMANDS
@@ -36,37 +40,57 @@ class Menu
       case command
       when 'eat'
         @animal.eat
+        html
       when 'rest'
         @animal.rest
+        html
       when 'rave'
         @animal.rave
+        html
       when 'wakeup'
         @animal.wakeup
+        html
       when 'pet'
         @animal.pet
+        html
       when 'bath'
         @animal.bath
+        html
       when 'wc'
         @animal.wc
+        html
       when 'help'
         @animal.help
       when 'status'
         @animal.status
+        html
       when 'age'
         @animal.age
+        html
       when 'voice'
         @animal.voice
+        html
       when 'purr'
         @animal.purr
+        html
       when 'hunt'
         @animal.hunt
+        html
       when 'exit'
         break
       else
         p 'Отдохни, хозяин. Ты устал и не понимаешь о чем говоришь.'
+        html
       end
     end
   end
+end
+
+def html(html_file = 'index.html')
+  content = "
+    <p>Check animal: #{@animal.status}</p>"
+
+  Html.new.to_html
 end
 
 Menu.new.start_to_play
