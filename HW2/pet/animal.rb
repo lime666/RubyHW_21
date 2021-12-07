@@ -1,7 +1,6 @@
 require 'time'
 
 class Animal
-
   def initialize(name)
     @name = name
     @asleep = false
