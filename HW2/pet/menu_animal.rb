@@ -89,11 +89,8 @@ end
 def html(html_file = 'index.html')
   content = "
     <p>Animal type: #{@animal_type}</p>
-    <p>Status: #{@animal.status}</p>
-    <p>Voice: #{@animal.voice}</p>"
-
-  page = Html.new.to_html(content, html_file)
-  page.edit_html(content, html_file)
+    <p>Status: #{@animal.status}</p>"
+  Html.new.to_html(content, true, html_file)
 end
 
 Menu.new.start_to_play
