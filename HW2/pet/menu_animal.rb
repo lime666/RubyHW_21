@@ -1,5 +1,7 @@
 require 'time'
 require 'to_html_gem'
+require 'bundler'
+Bundler.setup
 
 class Menu
   require_relative 'animal'
@@ -20,7 +22,8 @@ class Menu
       @animal = Owl.new(name)
       COMMANDS << %w[hunt]
     else
-      p 'Животные закончились.'
+      p 'Можно только или котика, или сову.'
+      exit
     end
     p 'Подождите немного пока животина родится.'
     sleep 5
@@ -61,9 +64,6 @@ class Menu
         html
       when 'help'
         @animal.help
-      when 'status'
-        @animal.status
-        html
       when 'age'
         @animal.age
         html
@@ -88,8 +88,7 @@ end
 
 def html(html_file = 'index.html')
   content = "
-    <p>Animal type: #{@animal_type}</p>
-    <p>Status: #{@animal.status}</p>"
+    <p>Animal type: #{@animal_type}</p>"
   Html.new.to_html(content, true, html_file)
 end
 
